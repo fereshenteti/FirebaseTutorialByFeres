@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "949404332006",
+    "firebase_url": "https://fir-tutorialbyferes.firebaseio.com",
+    "project_id": "fir-tutorialbyferes",
+    "storage_bucket": "fir-tutorialbyferes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949404332006:android:1edcb3a4d257e431",
+        "android_client_info": {
+          "package_name": "com.henteti.feres.firebasetutorialbyferes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949404332006-bf8r02dprsqgcr13vg1mi0jkk5365ja5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.henteti.feres.firebasetutorialbyferes",
+            "certificate_hash": "25b3d21da63765c781c91c299a0bc77df3adcd67"
+          }
+        },
+        {
+          "client_id": "949404332006-0pj1a21ih56ndm72ksj6fkr1up9c6iib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx2VeCCA-Bh_2baNUnnPdwqigJ5exO4Yg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949404332006-0pj1a21ih56ndm72ksj6fkr1up9c6iib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
