@@ -1,5 +1,6 @@
 package com.henteti.feres.firebasetutorialbyferes;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.henteti.feres.firebasetutorialbyferes.Singleton.Singleton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -72,7 +74,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-
+                            if (user != null) {
+                                // User is signed in
+                                Singleton.getInstance(MainActivity.this).setUser(user);
+                                startActivity(new Intent(MainActivity.this, Welcome.class));
+                            } else {
+                                // No user is signed in
+                                Toast.makeText(MainActivity.this, "Something went wrong! Please try again.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(MainActivity.this, "Something went wrong! Please try again.",
@@ -94,12 +104,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            if (user != null) {
+                                // User is signed in
+                                Singleton.getInstance(MainActivity.this).setUser(user);
+                                startActivity(new Intent(MainActivity.this, Welcome.class));
+                            } else {
+                                // No user is signed in
+                                Toast.makeText(MainActivity.this, "Something went wrong! Please try again.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+
                             //1) register the user in the shared preferences to maintain his connexion
                             //for next openings of the app
-                            ...
+
                             //2) share the user's infos with the singleton so it can be recognized in
                             //the other activities of the app
-                            ...
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(MainActivity.this, "Something went wrong! Please try again.",
