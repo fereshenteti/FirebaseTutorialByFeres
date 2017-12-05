@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -24,10 +26,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //endregion
 
     private AppCompatEditText email, pwd;
+    private AppCompatButton create, connectMail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        MainActivity.this.setTitle("Login or Create account");
         setContentView(R.layout.activity_main);
 
         //initializing connexion with firebase
@@ -42,7 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         email = findViewById(R.id.email);
         pwd = findViewById(R.id.pwd);
-
+        create = findViewById(R.id.create);
+        connectMail = findViewById(R.id.connectMail);
+        create.setOnClickListener(this);
+        connectMail.setOnClickListener(this);
 
     }
 
@@ -67,6 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void loginWithMailandPwd() {
 
+        if(email.getText()!= null && pwd.getText() != null
+                && !email.getText().toString().isEmpty()
+                && !pwd.getText().toString().isEmpty()){
         mAuth.signInWithEmailAndPassword(email.getText().toString(), pwd.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -92,12 +103,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // ...
                     }
                 });
+        }else {
+            Toast.makeText(MainActivity.this, "Please type your email and your password correctly!",
+                    Toast.LENGTH_SHORT).show();
+        }
+
 
     }
 
     private void signUpWithMailandPwd() {
 
-        mAuth.createUserWithEmailAndPassword(email.getText().toString(), pwd.getText().toString())
+        if(email.getText()!= null && pwd.getText() != null
+                && !email.getText().toString().isEmpty()
+                && !pwd.getText().toString().isEmpty()){
+            mAuth.createUserWithEmailAndPassword(email.getText().toString(), pwd.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -130,6 +149,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // ...
                     }
                 });
+        }else {
+            Toast.makeText(MainActivity.this, "Please type your email and your password correctly!",
+                    Toast.LENGTH_SHORT).show();
+        }
 
     }
 }

@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseUser;
+import com.henteti.feres.firebasetutorialbyferes.Singleton.Singleton;
+
 public class Welcome extends AppCompatActivity {
 
     @Override
@@ -14,6 +17,10 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        FirebaseUser user = Singleton.getInstance(Welcome.this).getUser();
+        if (user != null){
+            toolbar.setTitle("Welcome "+user);
+        }
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

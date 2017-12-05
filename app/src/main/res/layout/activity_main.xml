@@ -16,6 +16,7 @@
         android:layout_marginBottom="10dp"
         android:hint="email"
         android:id="@+id/email"
+        android:inputType="textEmailAddress"
         />
 
     <android.support.v7.widget.AppCompatEditText
@@ -24,6 +25,7 @@
         android:layout_marginBottom="10dp"
         android:hint="password"
         android:id="@+id/pwd"
+        android:inputType="textPassword"
         />
 
     <android.support.v7.widget.LinearLayoutCompat
@@ -39,6 +41,8 @@
             android:text="Create Account"
             android:layout_marginRight="5dp"
             android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textSize="17sp"
             android:layout_height="wrap_content" />
 
         <android.support.v7.widget.AppCompatButton
@@ -49,6 +53,8 @@
             android:text="Connect"
             android:layout_marginLeft="5dp"
             android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textSize="17sp"
             android:layout_height="wrap_content" />
 
     </android.support.v7.widget.LinearLayoutCompat>
@@ -59,6 +65,8 @@
         android:text="Connect Anonymously"
         android:layout_marginTop="10dp"
         android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:textSize="17sp"
         android:layout_height="wrap_content" />
 
 
